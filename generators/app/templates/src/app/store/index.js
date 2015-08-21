@@ -1,4 +1,4 @@
-import combineReducers from 'redux-immutable';
+import {combineReducers} from 'redux-immutable';
 import Immutable from 'immutable';
 import {createStore} from '../utils/devTools';
 import * as reducers from '../reducers';
@@ -6,6 +6,6 @@ import * as reducers from '../reducers';
 const reducer = combineReducers(reducers);
 
 let state = {};
-state.title = 'Hello world!';
+state.title = 'to the party';
 
-export const store = createStore(reducer, Immutable.fromJS(state));
+export default createStore(reducer, Immutable.fromJS(state));

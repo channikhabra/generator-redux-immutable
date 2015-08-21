@@ -10,7 +10,7 @@ module.exports = yeoman.generators.Base.extend({
 
     // Have Yeoman greet the user.
     this.log(yosay(
-      'Welcome to the pioneering ' + chalk.red('Redux') + ' generator!'
+      'Welcome to the pioneering ' + chalk.red('Redux Immutable') + ' generator!'
     ));
 
     var prompts = [{
@@ -44,7 +44,7 @@ module.exports = yeoman.generators.Base.extend({
       this.npmInstall([
         'react', 'react-redux', 'redux-devtools',
         'redux-thunk', 'lodash', 'redux-immutable',
-        'immutable', 'material-ui', 'react-router',
+        'immutable', 'material-ui', 'react-router@1.0.0-beta3',
         'reselect'
       ], {'save': true });
     },
@@ -77,16 +77,17 @@ module.exports = yeoman.generators.Base.extend({
       this._copyTpl('README.md' ,'README.md');
       this._copyTpl('webpack.config.js', 'webpack.config.js');
       this._copyTpl('server.js', 'server.js');
-      this._copyTpl('index.html', 'index.html');
-      this._copyTpl('js/index.js', 'js/index.js');
-      this.directory('css', 'css');
-      this.directory('js/actions', 'js/actions');
-      this.directory('js/components', 'js/components');
-      this.directory('js/constants', 'js/constants');
-      this.directory('js/containers', 'js/containers');
-      this.directory('js/data', 'js/data');
-      this.directory('js/reducers', 'js/reducers');
-      this.directory('js/utils', 'js/utils');
+      this._copyTpl('src/endpoint/index.html', 'src/endpoint/index.html');
+      this._copyTpl('src/app/index.js', 'src/app/index.js');
+      this.directory('src/app/actions', 'src/app/actions');
+      this.directory('src/app/components', 'src/app/components');
+      this.directory('src/app/constants', 'src/app/constants');
+      this.directory('src/app/containers', 'src/app/containers');
+      this.directory('src/app/data', 'src/app/data');
+      this.directory('src/app/reducers', 'src/app/reducers');
+      this.directory('src/app/selector', 'src/app/selector');
+      this.directory('src/app/store', 'src/app/store');
+      this.directory('src/app/utils', 'src/app/utils');
     },
 
     projectfiles: function () {

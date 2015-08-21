@@ -1,12 +1,11 @@
-import {Component} from 'react';
-import styles from '../../css/app.css';
+import React, {Component} from 'react';
 
 export default class Home extends Component {
   render() {
     // injected from the Sample reducer
     const {title} = this.props;
     return (
-      <h1 className={styles.text}>Welcome {title}!</h1>
+      <h1>Welcome {title}!</h1>
     );
   }
 }

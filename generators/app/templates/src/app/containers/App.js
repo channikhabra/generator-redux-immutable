@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import selector from '../selector';
 
+import {renderDevTools} from '../utils/devTools';
+import store from '../store';
+
 import Home from '../components/Home';
 
 class App extends Component {
@@ -12,8 +15,11 @@ class App extends Component {
   render() {
     const {children, title} = this.props;
     return (
-        <Home title=title />
+      <div>
+        <Home title={title} />
         {children}
+      {renderDevTools(store)}
+      </div>
     );
   }
 }

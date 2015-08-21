@@ -7,15 +7,19 @@ var devFlagPlugin = new webpack.DefinePlugin({
 
 module.exports = {
   devtool: 'cheap-module-eval-source-map',
-  entry: [
-    'webpack-dev-server/client?http://localhost:<%= port %>',
-    'webpack/hot/only-dev-server',
-    './js/index.js'
-  ],
+  context: __dirname + '/src',
+  entry: {
+    app: [
+      'webpack-dev-server/client?http://localhost:<%= port %>',
+      'webpack/hot/only-dev-server',
+      './app'
+    ]
+  },
   output: {
-    path: __dirname + '/static/',
+    path: __dirname + '/src/endpoint/static',
+    filename: '[name].js',
     publicPath: '/static/',
-    filename: 'bundle.js',
+    contentBase: __dirname + '/src/endpoint',
     hot: true
   },
   plugins: [
