@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import {Component} from 'react';
 import styles from '../../css/app.css';
 
-class Home extends Component {
+export default class Home extends Component {
   render() {
     // injected from the Sample reducer
     const {title} = this.props;
@@ -11,5 +10,3 @@ class Home extends Component {
     );
   }
 }
-
-export default connect(state => state.Sample)(Home)

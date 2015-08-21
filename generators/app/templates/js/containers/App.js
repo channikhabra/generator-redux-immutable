@@ -1,27 +1,23 @@
-import React from 'react';
-import {combineReducers} from 'redux';
-import {Provider} from 'react-redux';
-import {createStore, renderDevTools} from '../utils/devTools';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import selector from '../selector';
 
-import * as reducers from '../reducers/index';
 import Home from '../components/Home';
 
-const store = createStore(combineReducers(reducers));
+class App extends Component {
+  constructor (props) {
+    super(props);
+  }
 
-export default React.createClass({
   render() {
+    const {children, title} = this.props;
     return (
-      <div>
-
-        {/* <Home /> is your app entry point */}
-        <Provider store={store}>
-          {() => <Home /> }
-        </Provider>
-
-        {/* only renders when running in DEV mode */
-          renderDevTools(store)
-        }
-      </div>
+        <Home title=title />
+        {children}
     );
   }
-});
+}
+
+export default connect(
+  selector,
+)(App);

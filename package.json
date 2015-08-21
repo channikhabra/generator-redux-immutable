@@ -1,14 +1,14 @@
 {
-  "name": "generator-redux",
-  "version": "0.2.8",
-  "description": "CLI for Redux: next-gen functional Flux/React with devtools",
+  "name": "generator-redux-immutable",
+  "version": "0.1.0",
+  "description": "CLI for Redux: next-gen functional Flux/React with devtools and redux-immutable",
   "license": "MIT",
   "main": "app/index.js",
-  "repository": "banderson/generator-redux",
+  "repository": "channikhabra/generator-redux-immutable",
   "author": {
-    "name": "Ben Anderson",
-    "email": "banderson87@gmail.com",
-    "url": "https://github.com/banderson"
+    "name": "Charanjit Singh",
+    "email": "ckhabra@gmail.com",
+    "url": "https://github.com/channikhabra"
   },
   "scripts": {
     "test": "mocha"
@@ -23,7 +23,8 @@
     "reducers",
     "webpack",
     "yeoman",
-    "yeoman-generator"
+    "yeoman-generator",
+    "immutable"
   ],
   "dependencies": {
     "chalk": "^1.0.0",
