@@ -6,7 +6,6 @@ var devFlagPlugin = new webpack.DefinePlugin({
 });
 
 module.exports = {
-  devtool: 'cheap-module-eval-source-map',
   context: __dirname + '/src',
   entry: {
     app: [
@@ -23,19 +22,23 @@ module.exports = {
     hot: true
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('development')
+        'NODE_ENV': JSON.stringify('production')
       }
     }),
     devFlagPlugin,
-    new ExtractTextPlugin('app.css')
+    new ExtractTextPlugin('app.css'),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
   ],
   module: {
     loaders: [
-      { test: /\.js$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ },
+      { test: /\.js$/, loaders: ['babel'], exclude: /node_modules/ },
       { test: /\.css$/, loader: ExtractTextPlugin.extract('css-loader?module!cssnext-loader') }
     ]
   },

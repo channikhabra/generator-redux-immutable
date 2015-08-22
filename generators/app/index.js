@@ -76,6 +76,7 @@ module.exports = yeoman.generators.Base.extend({
       );
       this._copyTpl('README.md' ,'README.md');
       this._copyTpl('webpack.config.js', 'webpack.config.js');
+      this._copyTpl('webpack.production.config.js', 'webpack.production.config.js');
       this._copyTpl('server.js', 'server.js');
       this._copyTpl('src/endpoint/index.html', 'src/endpoint/index.html');
       this._copyTpl('src/app/index.js', 'src/app/index.js');
