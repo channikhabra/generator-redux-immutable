@@ -45,15 +45,17 @@ module.exports = yeoman.generators.Base.extend({
         'react', 'react-redux', 'redux-devtools',
         'redux-thunk', 'lodash', 'redux-immutable',
         'immutable', 'material-ui', 'react-router@1.0.0-beta3',
-        'reselect'
+        'react-tap-event-plugin', 'reselect'
       ], {'save': true });
     },
 
     buildTools: function() {
       this.npmInstall([
         'webpack', 'webpack-dev-server', 'css-loader', 'jsx-loader',
+        'file-loader', 'url-loader', 'sass-loader', 'autoprefixer',
         'babel-core', 'babel-loader', 'react-hot-loader', 'style-loader',
-        'extract-text-webpack-plugin', 'cssnext-loader'
+        'extract-text-webpack-plugin', 'cssnext-loader', 'transfer-webpack-plugin',
+        'html-webpack-plugin',
       ], {'saveDev': true });
     },
 
@@ -78,7 +80,8 @@ module.exports = yeoman.generators.Base.extend({
       this._copyTpl('webpack.config.js', 'webpack.config.js');
       this._copyTpl('webpack.production.config.js', 'webpack.production.config.js');
       this._copyTpl('server.js', 'server.js');
-      this._copyTpl('src/endpoint/index.html', 'src/endpoint/index.html');
+      this._copyTpl('src/www/index.html', 'src/www/index.html');
+      this.directory('src/www/images', 'src/www/images');
       this._copyTpl('src/app/index.js', 'src/app/index.js');
       this.directory('src/app/actions', 'src/app/actions');
       this.directory('src/app/components', 'src/app/components');
@@ -89,6 +92,8 @@ module.exports = yeoman.generators.Base.extend({
       this.directory('src/app/selector', 'src/app/selector');
       this.directory('src/app/store', 'src/app/store');
       this.directory('src/app/utils', 'src/app/utils');
+      this.directory('src/css/', 'src/css/');
+      this.directory('src/css/fonts', 'src/css/fonts');
     },
 
     projectfiles: function () {
